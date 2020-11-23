@@ -44,7 +44,7 @@
                                     <Input 
                                         value="{text}"
                                         submit="onRenameDone"
-                                        enabled="false">
+                                        >
                                         <customData>
                                             <core:CustomData
                                                 key="done" value="{= ${done} === true ? 'true' : 'false'}" writeToDom="true" />
