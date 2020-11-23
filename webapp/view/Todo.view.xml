@@ -1,0 +1,63 @@
+<mvc:View
+    controllerName="demo.todo.controller.Todo"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true">
+    <Shell>
+        <App>
+            <pages>
+                <Page title="{i18n>homePageTitle}">
+                    <headerContent>
+                    </headerContent>
+                    <content>
+                        <List
+                            id="todoList"
+                            mode="Delete"
+                            items="{/todos}">
+                            <headerToolbar>
+                                <Toolbar>
+                                    <CheckBox 
+                                        select="onSelectAll"
+                                        selected="{/selectedAll}"/>
+                                    <Input 
+                                        value="{/addTodo}"
+                                        submit="onAddTodo"
+                                        placeholder="{i18n>ToolbarInputPlaceholder}"/>
+                                    <ToolbarSpacer/>
+                                    <SegmentedButton>
+                                        <items>
+                                            <SegmentedButtonItem text="{i18n>SegBtnAll}"/>
+                                            <SegmentedButtonItem text="{i18n>SegBtnActive}"/>
+                                            <SegmentedButtonItem text="{i18n>SegBtnCompleted}"/>
+                                        </items>
+                                    </SegmentedButton>
+                                </Toolbar>
+                            </headerToolbar>
+                            <CustomListItem>
+                                <HBox>
+                                    <CheckBox 
+                                        select="onSelectSingle"
+                                        selected="{= ${done} === true ? true : false}"/>
+
+                                    <!-- Input enabled="false"면 DOM 자체 click이벤트가 아예 안먹힘 -->
+                                    <Input 
+                                        value="{text}"
+                                        submit="onRenameDone"
+                                        enabled="false">
+                                        <customData>
+                                            <core:CustomData
+                                                key="done" value="{= ${done} === true ? 'true' : 'false'}" writeToDom="true" />
+                                        </customData>
+                                    </Input>
+                                </HBox>
+                            </CustomListItem>
+                        </List>
+                    </content>
+                    <footer>
+                    </footer>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

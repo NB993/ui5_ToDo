@@ -1,0 +1,15 @@
+.sapMListUl .sapMInput[data-done="true"] .sapMInputBaseInner {
+    /* color: #808080; enabled되면 알아서 회색됨*/
+    text-decoration: line-through;
+}
+/* 굳이 none안해줘도 알아서 토글되는듯 */
+/* .sapMListUl .sapMInput[data-done="false"] .sapMInputBaseInner{
+    text-decoration: none;
+} */
+
+.sapMListUl .sapMInput .sapMInputBaseContentWrapper {
+    border: none;
+    outline: none;
+}
+
+
